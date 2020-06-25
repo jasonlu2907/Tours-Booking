@@ -54,12 +54,14 @@ header {
     top: 40%; /*50% tu thang cha, tuc la header*/
     left: 50%;
     transform: translate(-50%, -50%); /*relate to the element itself*/
+    text-align: center;
 }
 
 .heading-primary {
     /* background-color: red; */
     text-transform: uppercase;
     color: #fff;
+    margin-bottom: 50px;
 }
 
 .heading-primary-main {
@@ -67,6 +69,10 @@ header {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -74,4 +80,131 @@ header {
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 15px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/*STYLING BUTTONS  */
+/* muốn link và visited stay the same nên viết code chung */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    /* Clear underline */
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 50px;
+
+    position: relative;
+
+    /* 2types of animations, but here we use ez one */
+    transition: all;
+    transition-duration: 0.2s;
+    /* transition-delay: 0.2s; */
+
+    /*Ban đầu tưởng muốn cho vô giữa dùng transform hoặc absolute property cho ngầu
+    nhưng đơn giản vì đây là inline-block nên mình treat it as a text ->center align 
+    chổ mà nó nằm trong khoảng: text-box */
+    
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+/* When we click the btn */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+/* ------------------ */
+.btn::after {
+    /* To create it, first thing to do is to specify the content no matter if it ""
+    otherwise its not going to appear */
+    content: "";
+    display: inline-block;
+
+    /* 100% of the height&width of the real btn */
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+
+    /* Ko có những cái này nó sẽ tự gộp lại thành 1 element nên btn sẽ trông bự
+    + absolute sẽ tìm tới thằng "relative" gần nhất -> real btn 
+    + z-index để makesure nó nằm bên dưới real btn*/
+    position: absolute;
+    top: 0;
+    left : 0;
+    z-index: -1;
+
+    transition: all 0.2s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+    
+}
+
+.btn:hover::after {
+    /* scale increase the element */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out 0.75s;
+    
+    /* Ghi đến đây thôi, btn ko có animation trong 1 lúc,
+    để prevent chn này dùng animation-fill-mode backward đơn giản là
+    nó sẽ áp dụng animation trước lúc 0% luôn */
+    animation-fill-mode: backwards;
 }
