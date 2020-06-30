@@ -7,22 +7,31 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+html {
+    /*Root font-size, read note on Udemy*/
+    font-size: 62.5%; 
 }
 
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #777;
     line-height: 1.7;
-    padding: 30px;
+    padding: 3rem;
+
+    box-sizing: border-box;
 }
 
-header {
+.header {
     /* viewport height */
     height: 95vh; 
     background-image: linear-gradient(
@@ -38,18 +47,18 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo_box {
+.header__logo_box {
     position: absolute;
     /* top left start from? the relative which is the fatherElement*/
-    top: 30px;
-    left: 30px;
+    top: 3rem;
+    left: 3rem;
 }
 
-.logo {
-    height: 50px; /*width automatically defined by the browser and nguoc lai*/
+.header__logo {
+    height: 5rem; /*width automatically defined by the browser and nguoc lai*/
 }
 
-.text_box {
+.header__text_box {
     position: absolute;
     top: 40%; /*50% tu thang cha, tuc la header*/
     left: 50%;
@@ -61,25 +70,25 @@ header {
     /* background-color: red; */
     text-transform: uppercase;
     color: #fff;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 700;
-    letter-spacing: 15px;
+    letter-spacing: 1.5rem;
 
     animation: moveInRight 1s ease-out;
 }
@@ -87,11 +96,11 @@ header {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -103,11 +112,11 @@ header {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -123,9 +132,9 @@ header {
     text-transform: uppercase;
     /* Clear underline */
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 5rem;
 
     position: relative;
 
@@ -140,16 +149,16 @@ header {
     
 }
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-0.3rem);
     box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
 /* When we click the btn */
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-0.1rem);
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -164,7 +173,7 @@ header {
     /* 100% of the height&width of the real btn */
     height: 100%;
     width: 100%;
-    border-radius: 50px;
+    border-radius: 5rem;
 
     /* Ko có những cái này nó sẽ tự gộp lại thành 1 element nên btn sẽ trông bự
     + absolute sẽ tìm tới thằng "relative" gần nhất -> real btn 
@@ -177,7 +186,7 @@ header {
     transition: all 0.2s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
     
 }
@@ -191,7 +200,7 @@ header {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     100% {
@@ -200,7 +209,7 @@ header {
     }
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out 0.75s;
     
     /* Ghi đến đây thôi, btn ko có animation trong 1 lúc,
