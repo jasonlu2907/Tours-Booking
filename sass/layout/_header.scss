@@ -1,0 +1,36 @@
+.header {
+    /* viewport height */
+    height: 95vh; 
+    background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.808), /*Chi so cuoi cung OPACITY la de lam` mo` ti xiu de thay bgimg */
+    rgba($color-primary-dark, 0.801))
+    ,url(../img/ha-long-bay.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    /* Modern CSS property clip-path */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo_box {
+        position: absolute;
+        /* top left start from? the relative which is the fatherElement*/
+        top: 3rem;
+        left: 3rem;
+    }
+
+    &__logo {
+        height: 5rem; /*width automatically defined by the browser and nguoc lai*/
+    }
+    
+    &__text_box {
+        position: absolute;
+        top: 40%; /*50% tu thang cha, tuc la header*/
+        left: 50%;
+        transform: translate(-50%, -50%); /*relate to the element itself*/
+        text-align: center;
+    }
+}
+// .header__logo_box {
+// }

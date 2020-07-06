@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /*Root font-size, read note on Udemy*/
+    font-size: 62.5%; 
+}
+
+body {
+    //This one not exactly typography so lets keep it here
+    box-sizing: border-box;
+}

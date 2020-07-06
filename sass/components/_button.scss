@@ -1,0 +1,82 @@
+.btn {
+    /*STYLING BUTTONS  */
+    /* muốn link và visited stay the same nên viết code chung */
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        /* Clear underline */
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 5rem;
+
+        position: relative;
+
+        /* 2types of animations, but here we use ez one */
+        transition: all;
+        transition-duration: 0.2s;
+        /* transition-delay: 0.2s; */
+
+        /*Ban đầu tưởng muốn cho vô giữa dùng transform hoặc absolute property cho ngầu
+        nhưng đơn giản vì đây là inline-block nên mình treat it as a text ->center align 
+        chổ mà nó nằm trong khoảng: text-box */
+        
+    }
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    }
+    /* When we click the btn */
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: #777;
+    }
+
+    /* ------------------ */
+    &::after {
+        /* To create it, first thing to do is to specify the content no matter if it ""
+        otherwise its not going to appear */
+        content: "";
+        display: inline-block;
+
+        /* 100% of the height&width of the real btn */
+        height: 100%;
+        width: 100%;
+        border-radius: 5rem;
+
+        /* Ko có những cái này nó sẽ tự gộp lại thành 1 element nên btn sẽ trông bự
+        + absolute sẽ tìm tới thằng "relative" gần nhất -> real btn 
+        + z-index để makesure nó nằm bên dưới real btn*/
+        position: absolute;
+        top: 0;
+        left : 0;
+        z-index: -1;
+
+        transition: all 0.2s;
+    }
+
+    &--white::after {
+        background-color: $color-white;
+        
+    }
+
+    &:hover::after {
+        /* scale increase the element */
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out 0.75s;
+        
+        /* Ghi đến đây thôi, btn ko có animation trong 1 lúc,
+        để prevent chn này dùng animation-fill-mode backward đơn giản là
+        nó sẽ áp dụng animation trước lúc 0% luôn */
+        animation-fill-mode: backwards;
+    }
+}
