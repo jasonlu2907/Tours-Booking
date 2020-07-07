@@ -1,4 +1,5 @@
 .btn {
+
     /*STYLING BUTTONS  */
     /* muốn link và visited stay the same nên viết code chung */
     &:link,
@@ -9,6 +10,7 @@
         padding: 1.5rem 4rem;
         display: inline-block;
         border-radius: 5rem;
+        font-size: $default-font-size;
 
         position: relative;
 
@@ -20,16 +22,18 @@
         /*Ban đầu tưởng muốn cho vô giữa dùng transform hoặc absolute property cho ngầu
         nhưng đơn giản vì đây là inline-block nên mình treat it as a text ->center align 
         chổ mà nó nằm trong khoảng: text-box */
-        
+
     }
+
     &:hover {
         transform: translateY(-0.3rem);
-        box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
     }
+
     /* When we click the btn */
     &:active {
         transform: translateY(-0.1rem);
-        box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     }
 
     &--white {
@@ -54,7 +58,7 @@
         + z-index để makesure nó nằm bên dưới real btn*/
         position: absolute;
         top: 0;
-        left : 0;
+        left: 0;
         z-index: -1;
 
         transition: all 0.2s;
@@ -62,7 +66,7 @@
 
     &--white::after {
         background-color: $color-white;
-        
+
     }
 
     &:hover::after {
@@ -73,10 +77,37 @@
 
     &--animated {
         animation: moveInBottom .5s ease-out 0.75s;
-        
+
         /* Ghi đến đây thôi, btn ko có animation trong 1 lúc,
         để prevent chn này dùng animation-fill-mode backward đơn giản là
         nó sẽ áp dụng animation trước lúc 0% luôn */
         animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+
+    &:link,
+    &:visited {
+        color: $color-primary;
+        font-size: $default-font-size;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 0.1rem solid $color-primary;
+        padding: 0.3rem;
+
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: white;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.26);
+        transform: translateY(-0.2rem);
+    }
+
+    &:active {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.26);
+        transform: translateY(0);
     }
 }

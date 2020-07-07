@@ -1,6 +1,6 @@
 .row {
     max-width: 114rem;
-    background-color:  lightcoral;
+    // background-color:  lightcoral;
     margin: 0 auto; //cho nó ra giữa
 
     &:not(:last-child) {
@@ -12,7 +12,7 @@
 
     // ^= : start with, *= : contain, $= : end with
     [class^="col-"] {
-        background-color: peru;
+        // background-color: peru;
         float: left;
 
         &:not(:last-child) {
