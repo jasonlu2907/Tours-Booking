@@ -41,6 +41,11 @@
         color: #777;
     }
 
+    &--green {
+        background-image:linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        color: white;
+    }
+
     /* ------------------ */
     &::after {
         /* To create it, first thing to do is to specify the content no matter if it ""

@@ -1,0 +1,29 @@
+.feature-box {
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.8);
+
+    transition: all 0.2s;
+
+    &__icon {
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        // Cắt cái màu của bg-image vô text
+        -webkit-background-clip: text;
+        // TRONG SUỐT. -đéo biết, có cái này thì nó ms chạy được :)
+        color: transparent;
+        font-size: 6rem;
+
+    }
+    // &__text {
+    //    inherit from the parent
+    // }
+
+    &:hover {
+        transform: translateY(0.6rem);
+    }
+}
