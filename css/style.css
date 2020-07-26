@@ -87,7 +87,7 @@ body {
   transition: all 0.2s; }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(5deg);
-    text-shadow: 0.3rem 1rem 1rem rgba(0, 0, 0, 0.342); }
+    text-shadow: 0.3rem 1rem 2rem rgba(0, 0, 0, 0.342); }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -128,6 +128,9 @@ body {
   background-color: #f7f7f7;
   margin-top: -10rem; }
 
+.section-stories {
+  padding: 20rem 0; }
+
 .btn {
   /*STYLING BUTTONS  */
   /* muốn link và visited stay the same nên viết code chung */
@@ -151,10 +154,10 @@ body {
         chổ mà nó nằm trong khoảng: text-box */ }
   .btn:hover {
     transform: translateY(-0.3rem);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
   .btn:active {
     transform: translateY(-0.1rem);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn--white {
     background-color: #fff;
     color: #777; }
@@ -342,6 +345,27 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 6rem;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  transform: skewX(-12deg); }
+  .story__shape {
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .story__image {
+    height: 100%; }
+  .story__text {
+    transform: skewX(12deg); }
 
 .header {
   /* viewport height */

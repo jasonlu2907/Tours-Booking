@@ -23,6 +23,7 @@
     .col-1-of-2 {
         width: calc((100% - #{$gutter-horizontal}) / 2);
         //using attribute selector START WITH "col-"
+        
     }
 
     .col-1-of-3 {

@@ -27,13 +27,13 @@
 
     &:hover {
         transform: translateY(-0.3rem);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
     }
 
     /* When we click the btn */
     &:active {
         transform: translateY(-0.1rem);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2);
     }
 
     &--white {
@@ -71,7 +71,6 @@
 
     &--white::after {
         background-color: $color-white;
-
     }
 
     &:hover::after {
