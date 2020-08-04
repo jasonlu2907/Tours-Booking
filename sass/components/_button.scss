@@ -2,6 +2,7 @@
 
     /*STYLING BUTTONS  */
     /* muốn link và visited stay the same nên viết code chung */
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -23,6 +24,9 @@
         nhưng đơn giản vì đây là inline-block nên mình treat it as a text ->center align 
         chổ mà nó nằm trong khoảng: text-box */
 
+        // Update for <button> in form
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -31,7 +35,10 @@
     }
 
     /* When we click the btn */
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
+        
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2);
     }
@@ -42,7 +49,7 @@
     }
 
     &--green {
-        background-image:linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
         color: white;
     }
 

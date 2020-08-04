@@ -14,7 +14,7 @@
         border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
-
+        transition: all 0.4s;
         &:focus {
             // When the input is clicked
             outline: none; // Thuong thi ko dung outline nhung f lam gi do
@@ -49,5 +49,51 @@
         // visibility hidden làm nó biến mất tiu luôn
         visibility: hidden;
         transform: translateY(-4rem);
+    }
+
+    // PHẦN NÀY TRỞ XUỐNG KHÁ KHÓ
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-label {
+        position: relative;
+        padding-left: 3rem;
+    }
+
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: -2.5rem;
+        top: -0.5rem;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+        opacity: 1;
     }
 }
