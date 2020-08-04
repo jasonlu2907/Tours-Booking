@@ -1,0 +1,53 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit; //inherit the font-fam in body
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, 0.5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+        &:focus {
+            // When the input is clicked
+            outline: none; // Thuong thi ko dung outline nhung f lam gi do
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid $color-primary;
+        }
+        // Chỉ dùng trong form, học thuộc cái này
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        //Chữ bên trong input - placeholder
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark2;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        transition: all 0.4s;
+    }
+
+    // CÔNG ĐOẠN LÀM LABEL LÒI XUỐNG DƯỚI HOẶC BIẾN MẤT
+    // SIBLING SELECTOR
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        // Nếu chỉ có mỗi opacity thôi thì nó vẫn ở đó chỉ tàng hình th
+        // visibility hidden làm nó biến mất tiu luôn
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
