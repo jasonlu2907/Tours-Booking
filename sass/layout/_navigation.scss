@@ -12,6 +12,9 @@
         top: 6rem;
         right: 6rem;
         z-index: 2000;
+
+        text-align: center;
+        // transition: all 1s;
     }
 
     &__background {
@@ -39,19 +42,19 @@
         opacity: 0;
         visibility: hidden;
         // width: 0;
-        // Dùng width cũng được, các phần tử ban đầu ở bên tay trái
+        // Dùng width cũng được -> các phần tử ban đầu ở bên tay trái
         transition: all .8s;
     }
 
-    &__checkbox:checked ~ &__nav {
+    &__checkbox:checked~&__nav {
         opacity: 1;
         visibility: visible;
         // width: 100%;
     }
-    &__checkbox:checked ~ &__background {
+
+    &__checkbox:checked~&__background {
         transform: scale(70);
     }
-
 
     &__list {
         position: absolute;
@@ -67,6 +70,7 @@
     }
 
     &__link {
+
         &:link,
         &:visited {
             font-size: 3rem;
@@ -76,9 +80,9 @@
             text-transform: uppercase;
             display: inline-block;
             padding: 1rem 2rem;
-            background-image: linear-gradient(120deg, 
-                                            transparent 0%, 
-                                            transparent 50%, rgba(255, 255, 255, 0.836) 50%);
+            background-image: linear-gradient(120deg,
+                    transparent 0%,
+                    transparent 50%, rgba(255, 255, 255, 0.836) 50%);
             background-size: 220%;
             transition: all 0.4s;
         }
@@ -93,5 +97,60 @@
             color: $color-primary-light;
             transform: translateX(2rem);
         }
+    }
+
+    &__icon {
+        position: relative;
+        margin-top: 3.3rem;
+
+        &,
+        &::before,
+        &::after {
+            height: 3px;
+            width: 3rem;
+            background-color: $color-grey-dark3;
+            display: inline-block; // ko co cai nay ko thay gi
+            // có thể là 3 cái dính vô nhau?
+        }
+
+        // Want them(be4, after) to appear -> clarify their content
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .5s;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    // KHÔNG CHỌN CON CỦA ELEMENT KHÁC ĐƯỢC -> PHẢI DÙNG SIBLING ĐỂ CHỌN CON NÓ
+    &__checkbox:checked+&__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked+&__button &__icon::before {
+        top: 0;
+        transform: rotate(45*3deg);
+    }
+
+    &__checkbox:checked+&__button &__icon::after {
+        top: 0;
+        transform: rotate(-45*3deg);
     }
 }
