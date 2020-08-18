@@ -14,7 +14,6 @@
         z-index: 2000;
 
         text-align: center;
-        // transition: all 1s;
     }
 
     &__background {
@@ -119,7 +118,7 @@
             content: "";
             position: absolute;
             left: 0;
-            transition: all .5s;
+            transition: all .2s;
         }
 
         &::before {
@@ -140,16 +139,16 @@
     }
 
     // KHÔNG CHỌN CON CỦA ELEMENT KHÁC ĐƯỢC -> PHẢI DÙNG SIBLING ĐỂ CHỌN CON NÓ
-    &__checkbox:checked+&__button &__icon {
+    &__checkbox:checked + &__button &__icon {
         background-color: transparent;
     }
 
-    &__checkbox:checked+&__button &__icon::before {
+    &__checkbox:checked + &__button &__icon::before {
         top: 0;
         transform: rotate(45*3deg);
     }
 
-    &__checkbox:checked+&__button &__icon::after {
+    &__checkbox:checked + &__button &__icon::after {
         top: 0;
         transform: rotate(-45*3deg);
     }

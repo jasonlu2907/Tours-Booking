@@ -1,0 +1,49 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.815);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+
+    visibility: hidden;
+    opacity: 0;
+
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__content {
+        width: 75%;
+        height: 100%;
+        background-color: white;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+        @include abCenter;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "popup__left-1 ";
+    }
+
+
+    &__img {
+        width: 100%;
+    }
+
+    // &__button {
+    //     &:link,
+    //     &:visited {
+    //         position: absolute;
+    //         top: 3rem;
+    //         right: 3rem;
+    //         color: $color-grey-dark1;
+    //         font-size: 3rem;
+    //     }
+
+    //     &:hover {
+    //         color: $color-primary;
+    //     }
+    // }
+}
