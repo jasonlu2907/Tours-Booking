@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*
+0 - 600px : phone
+600 - 900px : Tablet-portait
+900 - 1200px : Tablet-landscape
+
+1800px + : Big desktop
+*/
 /*COLORS:*/
 /*GRID:*/
 /*FONT*/
@@ -12,7 +19,17 @@
 
 html {
   /*Root font-size, read note on Udemy*/
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  /*phone va tab-port fontsize giong nen bo qua*/ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -47,7 +64,7 @@ body {
 
 /*Things that related to text*/
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   color: #777;
@@ -138,13 +155,14 @@ body {
 
 .book {
   height: 50rem;
+  margin: 0 auto;
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../../img/nat-10.jpg);
   background-size: cover;
   border-radius: 5px;
   box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2); }
   .book__form {
     width: 50%;
-    padding: 6rem; }
+    padding: 5rem; }
 
 .section-footer {
   padding: 6rem 0;
